@@ -1,0 +1,128 @@
+&atmosphere_nml
+    idealized_moist_model = .true.
+/
+
+&column_grid_nml
+    lat_value = 35.26438968275466
+/
+
+&column_init_cond_nml
+    initial_temperature = 289
+    surf_geopotential = 0.0
+    surface_wind = 5.0
+/
+
+&column_nml
+    exponent = 7.0
+    initial_sphum = 0.001
+    lat_max = 1
+    lon_max = 1
+    num_levels = 80
+    robert_coeff = 0.0
+    scale_heights = 7.0
+    surf_res = 0.25
+    vert_coord_option = 'uneven_sigma'
+/
+
+&diag_manager_nml
+    mix_snapshot_average_fields = .false.
+/
+
+&diffusivity_nml
+    do_entrain = .false.
+    do_simple = .true.
+    fixed_depth = .true.
+/
+
+&fms_io_nml
+    fileset_write = 'single'
+    threading_write = 'single'
+/
+
+&fms_nml
+    domains_stack_size = 600000
+/
+
+&idealized_moist_phys_nml
+    convection_scheme = 'SIMPLE_BETTS_MILLER'
+    do_cloud_simple = .false.
+    do_damping = .false.
+    do_rrtm_radiation = .true.
+    do_simple = .true.
+    mixed_layer_bc = .true.
+    roughness_heat = 3.21e-05
+    roughness_moist = 3.21e-05
+    roughness_mom = 3.21e-05
+    turb = .true.
+    two_stream_gray = .false.
+/
+
+&lscale_cond_nml
+    do_evap = .false.
+    do_simple = .true.
+/
+
+&main_nml
+    calendar = 'thirty_day'
+    current_date = 1, 1, 1, 0, 0, 0
+    days = 360
+    dt_atmos = 1440
+    hours = 0
+    minutes = 0
+    seconds = 0
+/
+
+&mixed_layer_nml
+    albedo_value = 0.2
+    depth = 10000000000.0
+    evaporation = .true.
+    prescribe_initial_dist = .false.
+    tconst = 290
+/
+
+&qe_moist_convection_nml
+    tmax = 350.0
+    tmin = 80
+    rhbm = 0.1
+/
+
+&rrtm_radiation_nml
+    co2ppmv = 280.0
+    do_rad_time_avg = .true.
+    dont_h2o = .false.
+    dt_rad = 7200
+    dt_rad_avg = 86400
+    frierson_solar_rad = .true.
+    solr_cnst = 1370.0
+/
+
+&sat_vapor_pres_nml
+    do_simple = .true.
+/
+
+&surface_flux_nml
+    do_simple = .true.
+    old_dtaudv = .true.
+    use_virtual_temp = .false.
+/
+
+&two_stream_gray_rad_nml
+    atm_abs = 0.0
+    bog_a = 0
+    bog_b = 100.0
+    bog_mu = 0
+    carbon_conc = 280.0
+    do_seasonal = .false.
+    dt_rad_avg = 7200
+    odp = 1.0
+    rad_scheme = 'BYRNE'
+    solar_constant = 1370
+/
+
+&vert_turb_driver_nml
+    constant_gust = 0.0
+    do_diffusivity = .true.
+    do_mellor_yamada = .false.
+    do_simple = .true.
+    use_tau = .false.
+/
